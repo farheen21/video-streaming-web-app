@@ -1,0 +1,1 @@
+package com.webapp.application.videostreamingwebapp.repository;import com.webapp.application.videostreamingwebapp.model.Video;import org.springframework.data.mongodb.repository.MongoRepository;public interface VideoRepository extends MongoRepository<Video , String> {}

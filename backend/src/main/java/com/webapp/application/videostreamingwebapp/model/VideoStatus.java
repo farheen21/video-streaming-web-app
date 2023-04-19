@@ -1,0 +1,1 @@
+package com.webapp.application.videostreamingwebapp.model;public enum VideoStatus {    PUBLIC , PRIVATE , UNLISTED}
