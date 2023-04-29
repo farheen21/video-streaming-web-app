@@ -61,6 +61,9 @@ this.http.post('https://mybackend.com/api/upload/sanitize-and-save-logo', formDa
   public fileLeave(event: any) {
     console.log(event);
   }
+  /**
+   * This function uploads a video file and navigates to a page to save video details.
+   */
   uploadVideo(){
     if(this.fileEntry !== undefined){
        console.log(this.fileEntry);

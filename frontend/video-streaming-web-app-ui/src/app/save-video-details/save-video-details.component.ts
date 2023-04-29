@@ -30,6 +30,17 @@ export class SaveVideoDetailsComponent {
   thumbnailUrl !: string ;
   
 
+  /**
+   * This is a constructor function that initializes variables and a form group, and retrieves video
+   * data from a service using the video ID from the activated route.
+   * @param {ActivatedRoute} activatedRoute - An instance of the ActivatedRoute class, which is used to
+   * retrieve information about the current activated route.
+   * @param {VideoService} videoService - It is a service that provides methods to interact with the
+   * backend API to retrieve and manipulate video data.
+   * @param {MatSnackBar} snackBar - The `snackBar` parameter is an instance of the `MatSnackBar`
+   * service provided by Angular Material. It is used to display snack bar messages to the user, such
+   * as success or error messages.
+   */
   constructor (private activatedRoute : ActivatedRoute , 
                private videoService : VideoService , 
                private snackBar : MatSnackBar) {
@@ -85,6 +96,13 @@ export class SaveVideoDetailsComponent {
     }
   }
 
+  /**
+   * This function sets the selected file and its name when a file is selected by the user.
+   * @param {Event}  -  is an event object that is passed as a parameter to the
+   * onFileSelected() function. It contains information about the event that triggered the function,
+   * such as the target element and any associated data. In this case, it is an Event object that is
+   * triggered when a file is selected using an
+   */
   onFileSelected($event: Event){
     // @ts-ignore
     this.selectedFile = event?.target.files[0];
@@ -92,6 +110,9 @@ export class SaveVideoDetailsComponent {
     this.fileSelected  = true;
   }
 
+  /**
+   * The function uploads a thumbnail for a video and displays a notification upon successful upload.
+   */
   onUpload(){
      this.videoService.uploadThumbnail(this.selectedFile , this.videoId).subscribe(data => {
       //  console.log(data);
@@ -100,6 +121,9 @@ export class SaveVideoDetailsComponent {
      })
   }
 
+  /**
+   * This function saves video metadata by making a HTTP call to the backend using the video service.
+   */
   saveVideo() {
     // call the video service to make a http call to our backend
     const videoMetaData : VideoDto = {
