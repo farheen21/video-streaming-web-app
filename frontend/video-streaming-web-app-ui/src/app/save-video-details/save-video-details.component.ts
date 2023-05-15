@@ -32,8 +32,9 @@ export class SaveVideoDetailsComponent {
 
   constructor (private activatedRoute : ActivatedRoute , 
                private videoService : VideoService , 
-               private snackBar : MatSnackBar) {
-    this.videoId = this.activatedRoute.snapshot.params['videoId']; 
+               private snackBar : MatSnackBar) { 
+    this.videoId = this.activatedRoute.snapshot.params['videoId'];
+
     //  this.videoUrl = 'https://samplelib.com/lib/preview/mp4/sample-5s.mp4';
     this.videoService.getVideo(this.videoId).subscribe(data => {
        this.videoUrl = data.videoUrl;

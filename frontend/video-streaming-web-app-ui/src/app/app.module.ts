@@ -16,33 +16,35 @@ import { SaveVideoDetailsComponent } from './save-video-details/save-video-detai
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import {MatChipsModule} from '@angular/material/chips';
-import { MatInputModule } from "@angular/material/input";
-import { TagInputModule } from 'ngx-chips';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatChipsModule}from '@angular/material/chips';
+import {MatInputModule }from "@angular/material/input";
+import {TagInputModule}from 'ngx-chips';
+import {MatSnackBarModule}from '@angular/material/snack-bar';
 
-import {VgCoreModule} from '@videogular/ngx-videogular/core';
-import {VgControlsModule} from '@videogular/ngx-videogular/controls';
-import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
-import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
-import { VideoPlayerComponent } from './video-player/video-player.component';
-import { AuthConfigModule } from './auth/auth-config.module';
-import { AuthInterceptor } from 'angular-auth-oidc-client';
+import {VgCoreModule}from '@videogular/ngx-videogular/core';
+import {VgControlsModule}from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule}from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule}from '@videogular/ngx-videogular/buffering';
+import { VideoPlayerComponent}from './video-player/video-player.component';
+// import { AuthConfigModule } from './auth/auth-config.module';
+// import { AuthInterceptor } from 'angular-auth-oidc-client';
+import {VideoDetailComponent}from './video-detail/video-detail.component';
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UploadVideoComponent,
-    HeaderComponent,
-    SaveVideoDetailsComponent,
-    VideoPlayerComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+declarations: [
+AppComponent,
+UploadVideoComponent,
+HeaderComponent,
+SaveVideoDetailsComponent,
+VideoPlayerComponent,
+VideoDetailComponent
+],
+imports: [
+BrowserModule,
+AppRoutingModule,
+BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     NgxFileDropModule,
@@ -51,21 +53,23 @@ import { AuthInterceptor } from 'angular-auth-oidc-client';
     MatIconModule,
     FlexLayoutModule,
     MatFormFieldModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatChipsModule,
-    MatInputModule,
-    TagInputModule,
-    MatSnackBarModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule,
-    AuthConfigModule
-  ],
-  providers: [
-    {provide : HTTP_INTERCEPTORS , useClass: AuthInterceptor , multi : true}
-  ],
-  bootstrap: [AppComponent]
+MatSelectModule,
+ReactiveFormsModule,
+MatChipsModule,
+MatInputModule,
+TagInputModule,
+MatSnackBarModule,
+VgCoreModule,
+VgControlsModule,
+VgOverlayPlayModule,
+VgBufferingModule,
+// AuthConfigModule
+],
+providers: [
+// {provide : HTTP_INTERCEPTORS , useClass: AuthInterceptor , multi : true}
+],
+bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
