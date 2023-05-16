@@ -29,8 +29,9 @@ import { VideoPlayerComponent}from './video-player/video-player.component';
 // import { AuthConfigModule } from './auth/auth-config.module';
 // import { AuthInterceptor } from 'angular-auth-oidc-client';
 import {VideoDetailComponent}from './video-detail/video-detail.component';
-
-
+import { HomePageComponent}from './home-page/home-page.component';
+import {ProfilePageComponent}from './profile-page/profile-page.component';
+import {MatMenuModule}from '@angular/material/menu';
 
 @NgModule({
 declarations: [
@@ -39,15 +40,17 @@ UploadVideoComponent,
 HeaderComponent,
 SaveVideoDetailsComponent,
 VideoPlayerComponent,
-VideoDetailComponent
+VideoDetailComponent,
+HomePageComponent,
+ProfilePageComponent
 ],
 imports: [
 BrowserModule,
 AppRoutingModule,
 BrowserAnimationsModule,
-    FormsModule,
-    HttpClientModule,
-    NgxFileDropModule,
+FormsModule,
+HttpClientModule,
+NgxFileDropModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
@@ -64,6 +67,7 @@ VgControlsModule,
 VgOverlayPlayModule,
 VgBufferingModule,
 // AuthConfigModule
+MatMenuModule
 ],
 providers: [
 // {provide : HTTP_INTERCEPTORS , useClass: AuthInterceptor , multi : true}

@@ -8,7 +8,7 @@ import { VideoDto } from './video-dto';
   providedIn: 'root'
 })
 export class VideoService {
-  
+
   constructor(private httpClient :HttpClient) { }
 
   uploadVideo(fileEntry : File): Observable<UploadVideoResponse> {
@@ -24,17 +24,23 @@ export class VideoService {
     formData.append('videoId', videoId);
     // Http Post call to upload thumbnail
   return this.httpClient.post("http://localhost:8080/api/video/thumbnail" , formData , {
-     responseType : 'text' 
+     responseType : 'text'
   })
   }
-   
+
   getVideo(videoId : string):Observable<VideoDto>{
     return this.httpClient.get<VideoDto>("http://localhost:8080/api/video/"+videoId).pipe(
       tap((response: any) => console.log(response , "this is from video-play"))
-    )
-  }
+)
+}
 
-  saveVideo(videoMetaData: VideoDto) : Observable<VideoDto>{
+saveVideo(videoMetaData: VideoDto) : Observable<VideoDto>{
     return this.httpClient.put<VideoDto>("http://localhost:8080/api/video/" , videoMetaData)
   }
+
+  getAllVideo():Observable<VideoDto[]>{
+    return this.httpClient.get<VideoDto[]>("http://localhost:8080/api/video/").pipe(
+      tap((response: any) => console.log(response , "this is from video service for all videos"))
+)
+}
 }

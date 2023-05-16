@@ -1,0 +1,45 @@
+<div class="container home-page-grid">
+
+  <!-- <div class="col">
+      video
+  </div>
+  <div class="col">
+      video
+  </div>
+  <div class="col">
+      video
+  </div>
+  <div class="col">
+      video
+  </div> -->
+
+
+  <div class="row pt-lg-5">
+    <div *ngFor="let video of videos" class="col-4">
+      <div class="card home-page">
+
+        <!-- <img src={{video.thumbnailUrl}} alt=""> -->
+        <vg-player>
+          <video #media [vgMedia]="$any(media)" controls id="singleVideo"
+                 preload="auto">
+            <source src={{video.videoUrl}} type="video/mp4">
+          </video>
+        </vg-player>
+        <div class="d-flex justify-content-between">
+          <h2>{{ video.title }}</h2>
+          <button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+                  mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button (click)="editVideo(video.id)" mat-menu-item>
+              <span>Edit</span>
+            </button>
+          </mat-menu>
+        </div>
+        <p>{{ video.description }}</p>
+      </div>
+    </div>
+    <!-- Add more properties as needed -->
+  </div>
+</div>

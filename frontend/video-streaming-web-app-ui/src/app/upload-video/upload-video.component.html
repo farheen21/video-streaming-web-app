@@ -1,26 +1,32 @@
-<div class="center">
-    <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
-    (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
-        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-          Drag and Drop Vidoes in this section.
-          <button type="button" (click)="openFileSelector()">Browse Files</button>
-        </ng-template>
+<div class="center upload-video">
+  <div class="card-main pt-lg-5">
+    <ngx-file-drop (onFileDrop)="dropped($event)"
+                   (onFileLeave)="fileLeave($event)"
+                   (onFileOver)="fileOver($event)"
+                   dropZoneLabel="Drop files here">
+      <ng-template class="drop-zone"
+                   let-openFileSelector="openFileSelector" ngx-file-drop-content-tmp>
+        <img alt="" class="pb-5" src="../assets/upload-video.svg">
+        Drag and Drop Vidoes in this section.
+        <button (click)="openFileSelector()" type="button">Browse Files</button>
+      </ng-template>
     </ngx-file-drop>
     <div class="upload-table">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody class="upload-name-style">
-                <tr *ngFor="let item of files; let i=index">
-                    <td><strong>{{ item.relativePath }}</strong></td>
-                </tr>
-            </tbody>
-        </table>
+      <table class="table">
+        <thead>
+        <tr>
+          <th class="border-none">Name</th>
+        </tr>
+        </thead>
+        <tbody class="upload-name-style">
+        <tr *ngFor="let item of files; let i=index">
+          <td><strong>{{ item.relativePath }}</strong></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
-
-    <button mat-raised-button color="primary" *ngIf="fileUploaded" (click)="uploadVideo()">Upload Video</button>
-
+    <button (click)="uploadVideo()" *ngIf="fileUploaded" color="primary"
+            mat-raised-button>Upload Video
+    </button>
+  </div>
 </div>

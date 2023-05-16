@@ -1,22 +1,23 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import { VideoService } from '../video.service';
+import{Component, ViewEncapsulation}from '@angular/core';
+import {Router}from '@angular/router';
+import {NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry}from 'ngx-file-drop';
+import { VideoService}from '../video.service';
 
 @Component({
-  selector: 'app-upload-video',
-  templateUrl: './upload-video.component.html',
-  styleUrls: ['./upload-video.component.scss']
+selector: 'app-upload-video',
+templateUrl: './upload-video.component.html',
+styleUrls: ['./upload-video.component.scss'],
+encapsulation: ViewEncapsulation.None
 })
 export class UploadVideoComponent {
 
-   public files: NgxFileDropEntry[] = [];
+public files: NgxFileDropEntry[] = [];
    fileUploaded : boolean = false;
    fileEntry : FileSystemFileEntry | undefined;
 
    constructor( private videoService : VideoService , private router : Router){}
 
-  
+
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
     for (const droppedFile of files) {

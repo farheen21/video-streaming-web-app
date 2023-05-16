@@ -1,14 +1,23 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <span>Video Streaming App</span>
+      <a routerLink="/">Video Streaming App</a>
       <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <button aria-label="Example icon-button with share icon"
+              class="example-icon favorite-icon"
+              mat-icon-button routerLink="/save-video-details/:videoId">
+        <mat-icon>add_a_photo</mat-icon>
+      </button>
+      <button aria-label="Example icon-button with heart icon" class="example-icon favorite-icon"
+              mat-icon-button
+              routerLink="/upload-video">
         <mat-icon>video_call</mat-icon>
       </button>
-      <button aria-label="Example icon-button with share icon" class="example-icon favorite-icon"
-              mat-icon-button>
+      <button aria-label="Example icon-button with share icon"
+              class="example-icon favorite-icon"
+              mat-icon-button routerLink="/profile">
         <mat-icon>account_circle</mat-icon>
       </button>
+
 
       <!-- <button *ngIf="isAuthenticated; else noAuth" mat-icon-button  class="example-icon favorite-icon" aria-label="Example icon-button with share icon">
         <mat-icon>account_circle</mat-icon>
